@@ -23,7 +23,7 @@ void Solution3::SortWords()
 		}
 		else
 		{
-			throw std::exception("Le vecteur est vide!");
+			throw std::runtime_error("Le vecteur est vide!");
 		}
 	}
 	catch (const std::exception& error)
