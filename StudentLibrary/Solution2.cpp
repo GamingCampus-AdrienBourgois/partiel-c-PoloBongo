@@ -33,11 +33,11 @@ float Solution2::GetBalance(const std::string& accountName)
 			if (iss >> typeAction >> argent)
 			{
 				std::cout << "type : " << typeAction << " montant : " << argent << "\n";
-				if (typeAction == "DEPOSIT")
+				if (typeAction == "DEPOSIT" && argent != 0)
 				{
 					totoalArgent += argent;
 				}
-				else if (typeAction == "WITHDRAW")
+				else if (typeAction == "WITHDRAW" && argent != 0)
 				{
 					totoalArgent -= argent;
 				}
