@@ -1,7 +1,7 @@
 #pragma once
 #include <exception>
 #include <iostream>
-#include "../StudentLibrary/Solution2.h"
+#include "../StudentLibrary/Solution3.h"
 
 class ExerciceBase
 {

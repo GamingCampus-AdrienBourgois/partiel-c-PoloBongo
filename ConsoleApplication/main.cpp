@@ -10,8 +10,8 @@ int main(int argc, char** argv)
 #ifndef AUTOGRADING
 
 	std::cout << "Local test" << std::endl;
-
-	Solution2::GetBalance("159874");
+	Solution3 sol;
+	sol.SortWords();
 	/*------------------------------ !!! Don't touch above !!! ------------------------------*/
 	/*------------------------------------ STUDENT MAIN ------------------------------------*/
 
