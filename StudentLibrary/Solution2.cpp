@@ -45,7 +45,6 @@ float Solution2::GetBalance(const std::string& accountName)
 				{
 					throw std::runtime_error("impossible de lire le type d'action suivant : " + typeAction);
 				}
-				
 			}
 			else {
 				throw std::runtime_error("impossible de lire la ligne suivante : " + ligne);
@@ -53,6 +52,7 @@ float Solution2::GetBalance(const std::string& accountName)
 		}
 		fichier.close();
 	}
+	return totoalArgent;
 }
 
 #endif
