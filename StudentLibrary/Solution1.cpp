@@ -8,41 +8,46 @@
 float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, TemperatureUnits _to)
 {
 	float resultat = 0.0;
-	switch (_from)
+	if (_to == _from)
 	{
-	case TemperatureUnits::CELSIUS:
-		if (_to == TemperatureUnits::FAHRENHEIT)
-		{
-			resultat = (_value * 9 / 5) + 32;
-		}
-		else if (_to == TemperatureUnits::KELVIN)
-		{
-			resultat = _value + 273;
-		}
-		break;
-	case TemperatureUnits::FAHRENHEIT:
-		if (_to == TemperatureUnits::CELSIUS)
-		{
-			resultat = (_value - 32) * 5 / 9;
-		}
-		else if (_to == TemperatureUnits::KELVIN)
-		{
-			resultat = (_value - 32) * 5 / 9 + 273;
-		}
-		break;
-	case TemperatureUnits::KELVIN:
-		if (_to == TemperatureUnits::CELSIUS)
-		{
-			resultat = _value - 273;
-		}
-		else if (_to == TemperatureUnits::FAHRENHEIT)
-		{
-			resultat = (_value - 273) * 9 / 5 + 32;
-		}
-		break;
-	default:
-		break;
+		resultat = _value;
 	}
+	else {
+		switch (_from)
+		{
+		case TemperatureUnits::CELSIUS:
+			if (_to == TemperatureUnits::FAHRENHEIT)
+			{
+				resultat = (_value * 9 / 5) + 32;
+			}
+			else if (_to == TemperatureUnits::KELVIN)
+			{
+				resultat = _value + 273;
+			}
+			break;
+		case TemperatureUnits::FAHRENHEIT:
+			if (_to == TemperatureUnits::CELSIUS)
+			{
+				resultat = (_value - 32) * 5 / 9;
+			}
+			else if (_to == TemperatureUnits::KELVIN)
+			{
+				resultat = (_value - 32) * 5 / 9 + 273;
+			}
+			break;
+		case TemperatureUnits::KELVIN:
+			if (_to == TemperatureUnits::CELSIUS)
+			{
+				resultat = _value - 273;
+			}
+			else if (_to == TemperatureUnits::FAHRENHEIT)
+			{
+				resultat = (_value - 273) * 9 / 5 + 32;
+			}
+			break;
+		}
+	}
+	
 	return round(resultat * 100) / 100;
 }
 
