@@ -1,6 +1,8 @@
 #include "Solution3.h"
+
 #include <algorithm>
 #include <iostream>
+#include<exception>
 
 // Don't fortget to enable the exercise in the SudentConfiguration.h file !
 #include "StudentConfiguration.h"
