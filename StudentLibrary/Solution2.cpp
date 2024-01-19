@@ -4,7 +4,6 @@
 #include <sstream>
 #include <fstream>
 #include <string>
-#include <exception>
 #include <stdexcept>
 
 // Don't forget to enable the exercise in the SudentConfiguration.h file !
@@ -16,9 +15,10 @@ float Solution2::GetBalance(const std::string& accountName)
 	float totoalArgent = 0.0;
 	std::string bankAccountName = "BankAccount/" + accountName + ".txt";
 	std::ifstream fichier(bankAccountName);
+
 	if (!fichier.is_open())
 	{
-		throw std::exception("Impossible d'ouvrir le fichier .TXT");
+		throw std::runtime_error("Impossible d'ouvrir le fichier suivant : " + bankAccountName);
 	}
 	else
 	{
@@ -26,20 +26,30 @@ float Solution2::GetBalance(const std::string& accountName)
 		while (std::getline(fichier, ligne))
 		{
 			std::istringstream iss(ligne);
-			std::string action;
+			std::string typeAction;
 			float argent;
 			
 
-			if (iss >> action >> argent)
+			if (iss >> typeAction >> argent)
 			{
-				std::cout << "type : " << action << " montant : " << argent << "\n";
-				totoalArgent = totoalArgent + argent;
+				std::cout << "type : " << typeAction << " montant : " << argent << "\n";
+				if (typeAction == "DEPOSIT")
+				{
+					totoalArgent += argent;
+				}
+				else if (typeAction == "WITHDRAW")
+				{
+					totoalArgent -= argent;
+				}
+				else
+				{
+					throw std::runtime_error("impossible de lire le type d'action suivant : " + typeAction);
+				}
+				
 			}
 			else {
 				throw std::runtime_error("impossible de lire la ligne suivante : " + ligne);
 			}
-
-			std::cout << ligne << std::endl;
 		}
 		fichier.close();
 	}
