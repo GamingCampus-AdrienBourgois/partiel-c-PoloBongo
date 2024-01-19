@@ -31,22 +31,23 @@ float Solution2::GetBalance(const std::string& accountName)
 			
 
 			if (iss >> typeAction >> argent)
-			{
-				std::cout << "type : " << typeAction << " montant : " << argent << "\n";
-				if (typeAction == "DEPOSIT" && argent != 0)
-				{
-					totoalArgent += argent;
-				}
-				else if (typeAction == "WITHDRAW" && argent != 0)
-				{
-					totoalArgent -= argent;
-				}
-				else
+			{				
+				if (typeAction != "DEPOSIT" || typeAction != "WITHDRAW")
 				{
 					throw std::runtime_error("impossible de lire le type d'action suivant : " + typeAction);
 				}
+
+				if (typeAction == "DEPOSIT")
+				{
+					totoalArgent += argent;
+				}
+				else if (typeAction == "WITHDRAW")
+				{
+					totoalArgent -= argent;
+				}
 			}
-			else {
+			else
+			{
 				throw std::runtime_error("impossible de lire la ligne suivante : " + ligne);
 			}
 		}
