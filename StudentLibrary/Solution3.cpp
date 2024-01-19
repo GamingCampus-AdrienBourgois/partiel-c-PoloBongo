@@ -15,7 +15,21 @@ void Solution3::SetWords(const std::vector<std::string>& _words)
 
 void Solution3::SortWords() 
 {
-	(words.empty()) ? throw std::runtime_error("Le vecteur est vide!") : std::sort(words.begin(), words.end());
+    try
+    {
+        std::sort(words.begin(), words.end(), [](const std::string& first, const std::string& last)
+        {
+           return std::lexicographical_compare(first.begin(), first.end(), last.begin(), last.end(), [](char char1, char char2)
+           {
+                return std::tolower(char1) < std::tolower(char2);
+           });
+        });
+    }
+    catch (const std::exception& error)
+    {
+        std::cerr << "une erreur est survenue lors de la lecture du vecteur" << error.what();
+    }
+
 }
 
 std::vector<std::string> Solution3::GetSortedWords() const
