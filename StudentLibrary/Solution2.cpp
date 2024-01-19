@@ -32,7 +32,7 @@ float Solution2::GetBalance(const std::string& accountName)
 
 			if (iss >> typeAction >> argent)
 			{				
-				if (typeAction != "DEPOSIT" || typeAction != "WITHDRAW")
+				if (typeAction != "DEPOSIT" && typeAction != "WITHDRAW")
 				{
 					throw std::runtime_error("impossible de lire le type d'action suivant : " + typeAction);
 				}
@@ -53,6 +53,7 @@ float Solution2::GetBalance(const std::string& accountName)
 		}
 		fichier.close();
 	}
+	std::cout << "\n Argent total : " << totoalArgent;
 	return totoalArgent;
 }
 
