@@ -1,5 +1,6 @@
 #include "Solution1.h"
 #include <iostream>
+#include <exception>
 
 // Don't fortget to enable the exercise in the SudentConfiguration.h file !
 #include "StudentConfiguration.h"
@@ -45,6 +46,8 @@ float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, Temper
 				resultat = (_value - 273) * 9 / 5 + 32;
 			}
 			break;
+		default:
+			throw std::exception("pas de température a calcule");
 		}
 	}
 	
