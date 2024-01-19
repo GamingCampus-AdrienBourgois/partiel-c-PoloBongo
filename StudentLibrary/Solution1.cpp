@@ -23,7 +23,7 @@ float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, Temper
 			}
 			else if (_to == TemperatureUnits::KELVIN)
 			{
-				resultat = _value + 273;
+				resultat = _value - 273;
 			}
 			break;
 		case TemperatureUnits::FAHRENHEIT:
@@ -39,7 +39,7 @@ float Solution1::ConvertTemperature(float _value, TemperatureUnits _from, Temper
 		case TemperatureUnits::KELVIN:
 			if (_to == TemperatureUnits::CELSIUS)
 			{
-				resultat = _value - 273;
+				resultat = _value + 273;
 			}
 			else if (_to == TemperatureUnits::FAHRENHEIT)
 			{
