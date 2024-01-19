@@ -17,7 +17,14 @@ void Solution3::SortWords()
 {
 	try 
 	{
-		std::sort(words.begin(), words.end());
+		if (!words.empty() || words.size() < 0 )
+		{
+			std::sort(words.begin(), words.end());
+		}
+		else
+		{
+			throw std::runtime_error("Le vecteur est vide!");
+		}
 	}
 	catch (const std::exception& error)
 	{
