@@ -11,6 +11,7 @@ int main(int argc, char** argv)
 
 	std::cout << "Local test" << std::endl;
 
+	Solution2::GetBalance("159874");
 	/*------------------------------ !!! Don't touch above !!! ------------------------------*/
 	/*------------------------------------ STUDENT MAIN ------------------------------------*/
 
